@@ -18,4 +18,8 @@ class Post < ApplicationRecord
 
   belongs_to(:user)
   belongs_to(:board)
+
+  def owner
+    User.find(self.user_id)
+  end
 end
