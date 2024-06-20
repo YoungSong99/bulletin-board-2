@@ -10,4 +10,9 @@
 #
 class Board < ApplicationRecord
   validates(:name, presence: true, uniqueness: true)
+  belongs_to(:user)
+
+  def owner
+    User.find(self.user_id)
+  end
 end
